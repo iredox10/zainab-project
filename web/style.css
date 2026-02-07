@@ -77,6 +77,29 @@ body {
 .landing-content {
     text-align: center;
     transition: var(--transition);
+    position: relative;
+}
+
+.landing-nav {
+    position: absolute;
+    top: -40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+.landing-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.landing-nav a:hover {
+    color: var(--nwu-green);
 }
 
 .logo-wrapper {
@@ -86,8 +109,12 @@ body {
 
 .main-logo {
     width: 120px;
-    height: auto;
-    filter: drop-shadow(var(--shadow-md));
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+    box-shadow: var(--shadow-md);
 }
 
 .headline {
@@ -224,8 +251,12 @@ body {
 
 .mini-logo {
     width: 40px;
-    height: auto;
+    height: 40px;
+    object-fit: contain;
     margin-right: 12px;
+    background: white;
+    border-radius: 50%;
+    padding: 2px;
 }
 
 .header-info {
@@ -236,20 +267,28 @@ body {
 .header-info h3 {
     font-size: 1.1rem;
     font-weight: 600;
+    margin-bottom: 2px;
 }
 
-.status-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #10b981;
-    border-radius: 50%;
-    margin-right: 6px;
+.chat-nav-links {
+    display: flex;
+    gap: 12px;
 }
 
-.status-text {
-    font-size: 0.85rem;
+.chat-nav-links a {
+    font-size: 0.8rem;
     color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.chat-nav-links a.active {
+    color: var(--nwu-green);
+    font-weight: 600;
+}
+
+.chat-nav-links a:hover {
+    color: var(--nwu-green-light);
 }
 
 #restart-btn {

@@ -18,8 +18,12 @@
     <div id="main-container" class="main-container">
         <!-- Landing View -->
         <header id="hero-header" class="landing-content">
+            <nav class="landing-nav">
+                <a href="https://nwu.edu.ng" target="_blank">University Website</a>
+                <a href="#about">About Chatbot</a>
+            </nav>
             <div class="logo-wrapper">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Northwest_University%2C_Kano_logo.png" alt="NWU Logo" class="main-logo">
+                <img src="northwest_logo.jpg" alt="NWU Logo" class="main-logo">
             </div>
             <h1 class="headline">How can I help you <span class="accent">today?</span></h1>
             <p class="sub-headline">Ask me anything about NWU admissions, fees, or campus life.</p>
@@ -28,10 +32,14 @@
         <!-- Chat View (Hidden initially) -->
         <div id="chat-header" class="chat-header chat-content">
             <div class="header-info">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Northwest_University%2C_Kano_logo.png" alt="NWU Logo" class="mini-logo">
+                <img src="northwest_logo.jpg" alt="NWU Logo" class="mini-logo">
                 <div>
                     <h3>NWU Assistant</h3>
-                    <span class="status-dot"></span><span class="status-text">Online</span>
+                    <div class="chat-nav-links">
+                        <a href="#" class="active">Chat</a>
+                        <a href="https://nwu.edu.ng/admissions" target="_blank">Admissions</a>
+                        <a href="https://nwu.edu.ng/fees" target="_blank">Fees</a>
+                    </div>
                 </div>
             </div>
             <button id="restart-btn" title="New Session"><i class="fas fa-rotate-right"></i></button>

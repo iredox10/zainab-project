@@ -23,3 +23,5 @@ NWU Chatbot Proxy starting on http://localhost:5000
 127.0.0.1 - - [07/Feb/2026 15:59:17] "POST /chat HTTP/1.1" 200 -
 127.0.0.1 - - [07/Feb/2026 15:59:38] "OPTIONS /chat HTTP/1.1" 200 -
 127.0.0.1 - - [07/Feb/2026 15:59:39] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:03:30] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:03:31] "POST /chat HTTP/1.1" 200 -
