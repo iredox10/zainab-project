@@ -6,8 +6,10 @@ const chatMessages = document.getElementById('chat-messages');
 const restartBtn = document.getElementById('restart-btn');
 const suggestChips = document.querySelectorAll('.suggest-chip');
 
-// Using a local proxy to bypass browser CORS restrictions
-const PROXY_URL = 'http://localhost:5000/chat';
+// Use /api if hosted on Netlify, otherwise use localhost:5000
+const PROXY_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    ? 'http://localhost:5000/chat' 
+    : '/api/chat';
 
 let isChatStarted = false;
 

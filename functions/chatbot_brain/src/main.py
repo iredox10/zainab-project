@@ -18,10 +18,11 @@ def main(context):
     db_id = os.environ.get('APPWRITE_DATABASE_ID', 'nwu_chatbot_db')
     coll_patterns = os.environ.get('APPWRITE_COLLECTION_PATTERNS', 'patterns')
     coll_responses = os.environ.get('APPWRITE_COLLECTION_RESPONSES', 'responses')
+    coll_settings = 'settings'
     coll_logs = 'logs'
 
     try:
-        # ... (Parsing Input logic remains same)
+        # 1. Parse Input
         if context.req.body:
             payload = json.loads(context.req.body)
             user_msg = payload.get('message', '')
@@ -31,14 +32,23 @@ def main(context):
         if not user_msg:
             return context.res.json({"error": "Empty message"}, 400)
 
-        # 2. Fetch Patterns from Appwrite
+        # 2. Fetch Threshold from Settings
+        threshold = 0.75
+        try:
+            settings_resp = databases.list_documents(db_id, coll_settings, [Query.equal('key', 'threshold')])
+            if settings_resp['documents']:
+                threshold = float(settings_resp['documents'][0]['value'])
+        except Exception as e:
+            context.error(f"Settings fetch error: {e}")
+
+        # 3. Fetch Patterns from Appwrite
         patterns_response = databases.list_documents(db_id, coll_patterns, [
             Query.limit(100) 
         ])
         patterns_data = patterns_response['documents']
 
-        # 3. Predict Intent
-        intent_tag = predict_class(user_msg, patterns_data)
+        # 4. Predict Intent
+        intent_tag = predict_class(user_msg, patterns_data, threshold=threshold)
 
         matched = False
         if intent_tag:

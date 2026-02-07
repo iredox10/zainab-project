@@ -107,6 +107,26 @@ def setup_database():
         except Exception as e:
             print(f"Collection logs error: {e}")
 
+    # 5. Settings Collection
+    print(f"Checking collection: settings...")
+    try:
+        databases.get_collection(database_id, 'settings')
+        print("Collection already exists.")
+    except Exception:
+        try:
+            databases.create_collection(database_id, 'settings', 'settings', permissions=[
+                Permission.read(Role.any()),
+                Permission.write(Role.users()), 
+            ])
+            databases.create_string_attribute(database_id, 'settings', 'key', 50, True)
+            databases.create_string_attribute(database_id, 'settings', 'value', 255, True)
+            print("Collection created.")
+            # Default values
+            time.sleep(2)
+            databases.create_document(database_id, 'settings', 'unique()', {'key': 'threshold', 'value': '0.75'})
+        except Exception as e:
+            print(f"Collection settings error: {e}")
+
 def migrate_data():
     with open('data/intents.json', 'r') as f:
         data = json.load(f)

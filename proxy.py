@@ -14,7 +14,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-# Appwrite Configuration
+# Appwrite Connection
 endpoint = os.getenv('APPWRITE_ENDPOINT')
 project_id = os.getenv('APPWRITE_PROJECT_ID')
 api_key = os.getenv('APPWRITE_API_KEY')
@@ -25,10 +25,13 @@ client.set_project(project_id)
 client.set_key(api_key)
 
 functions = Functions(client)
-account = Account(client)
 databases = Databases(client)
 
 DB_ID = 'nwu_chatbot_db'
+COLL_INTENTS = 'intents'
+COLL_PATTERNS = 'patterns'
+COLL_RESPONSES = 'responses'
+COLL_LOGS = 'logs'
 
 @app.route('/chat', methods=['POST'])
 def chat():
@@ -51,7 +54,6 @@ def login():
     email = data.get('email')
     password = data.get('password')
     try:
-        # Verify credentials by creating a session on a clean client
         user_client = Client().set_endpoint(endpoint).set_project(project_id)
         user_account = Account(user_client)
         session = user_account.create_email_password_session(email, password)
@@ -62,35 +64,54 @@ def login():
 @app.route('/stats', methods=['GET'])
 def get_stats():
     try:
-        logs = databases.list_documents(DB_ID, 'logs', [Query.limit(100), Query.order_desc('$createdAt')])
-        intents = databases.list_documents(DB_ID, 'intents')
+        logs = databases.list_documents(DB_ID, COLL_LOGS, [Query.limit(100), Query.order_desc('$createdAt')])
+        intents = databases.list_documents(DB_ID, COLL_INTENTS)
         return jsonify({"logs": logs, "intents": intents})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route('/data/<collection>', methods=['GET', 'POST', 'DELETE'])
+@app.route('/data/<collection>', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def handle_data(collection):
-    coll_id = collection
     try:
         if request.method == 'GET':
             query_tag = request.args.get('tag')
             queries = [Query.limit(100)]
             if query_tag:
                 queries.append(Query.equal('intent_tag', query_tag))
-            result = databases.list_documents(DB_ID, coll_id, queries)
+            result = databases.list_documents(DB_ID, collection, queries)
             return jsonify(result)
         
         if request.method == 'POST':
-            result = databases.create_document(DB_ID, coll_id, 'unique()', request.json)
+            result = databases.create_document(DB_ID, collection, 'unique()', request.json)
             return jsonify(result)
             
         if request.method == 'DELETE':
             doc_id = request.args.get('id')
-            databases.delete_document(DB_ID, coll_id, doc_id)
+            # If deleting an intent, also delete its patterns and responses
+            if collection == COLL_INTENTS:
+                intent = databases.get_document(DB_ID, COLL_INTENTS, doc_id)
+                tag = intent['tag']
+                # Delete patterns
+                p_docs = databases.list_documents(DB_ID, COLL_PATTERNS, [Query.equal('intent_tag', tag)])
+                for doc in p_docs['documents']:
+                    databases.delete_document(DB_ID, COLL_PATTERNS, doc['$id'])
+                # Delete responses
+                r_docs = databases.list_documents(DB_ID, COLL_RESPONSES, [Query.equal('intent_tag', tag)])
+                for doc in r_docs['documents']:
+                    databases.delete_document(DB_ID, COLL_RESPONSES, doc['$id'])
+            
+            databases.delete_document(DB_ID, collection, doc_id)
             return jsonify({"status": "deleted"})
+
+        if request.method == 'PUT':
+            doc_id = request.args.get('id')
+            result = databases.update_document(DB_ID, collection, doc_id, request.json)
+            return jsonify(result)
+
     except Exception as e:
+        print(f"Data Error ({collection}): {e}")
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    print("NWU Chatbot Advanced Proxy starting on http://localhost:5000")
+    print("NWU Chatbot Proxy v2 starting on http://localhost:5000")
     app.run(port=5000)

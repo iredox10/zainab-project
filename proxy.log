@@ -6,3 +6,517 @@ NWU Chatbot Advanced Proxy starting on http://localhost:5000
 [33mPress CTRL+C to quit[0m
 127.0.0.1 - - [07/Feb/2026 16:34:10] "OPTIONS /login HTTP/1.1" 200 -
 127.0.0.1 - - [07/Feb/2026 16:34:11] "POST /login HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:65: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  def get_stats():
+/home/iredox/Desktop/zainab/proxy.py:66: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  try:
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:02] "GET /stats HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:03] "GET /data/intents HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:03] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:03] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:03] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:04] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:04] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:04] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:04] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:05] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:06] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:07] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:07] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:07] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:07] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:07] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:07] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:08] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:08] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:08] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:08] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:08] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:08] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:08] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:08] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:09] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:09] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:09] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:09] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:09] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:11] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:12] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:12] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:12] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:26] "GET /data/logs HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:48] "GET /data/logs HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:52] "GET /data/settings HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:40:59] "GET /data/settings HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:40:59] "OPTIONS /data/settings HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:84: DeprecationWarning: Call to deprecated function 'create_document'. This API has been deprecated since 1.8.0. Please use `tablesDB.create_row` instead.
+  if request.method == 'POST':
+127.0.0.1 - - [07/Feb/2026 16:41:00] "POST /data/settings HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:65: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  def get_stats():
+/home/iredox/Desktop/zainab/proxy.py:66: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  try:
+127.0.0.1 - - [07/Feb/2026 16:41:10] "GET /stats HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:41:31] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:41:43] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:41:58] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:42:01] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:42:19] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:42:21] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:42:40] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:42:41] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:42:48] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:42:49] "POST /chat HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:65: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  def get_stats():
+/home/iredox/Desktop/zainab/proxy.py:66: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  try:
+127.0.0.1 - - [07/Feb/2026 16:49:18] "GET /stats HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:49:28] "GET /data/settings HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:49:28] "GET /data/logs HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:49:38] "GET /data/logs HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:15] "OPTIONS /data/intents HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:84: DeprecationWarning: Call to deprecated function 'create_document'. This API has been deprecated since 1.8.0. Please use `tablesDB.create_row` instead.
+  if request.method == 'POST':
+127.0.0.1 - - [07/Feb/2026 16:50:16] "POST /data/intents HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:16] "OPTIONS /data/patterns HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:84: DeprecationWarning: Call to deprecated function 'create_document'. This API has been deprecated since 1.8.0. Please use `tablesDB.create_row` instead.
+  if request.method == 'POST':
+127.0.0.1 - - [07/Feb/2026 16:50:17] "POST /data/patterns HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:17] "OPTIONS /data/responses HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:84: DeprecationWarning: Call to deprecated function 'create_document'. This API has been deprecated since 1.8.0. Please use `tablesDB.create_row` instead.
+  if request.method == 'POST':
+127.0.0.1 - - [07/Feb/2026 16:50:17] "POST /data/responses HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:18] "GET /data/intents HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:19] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:19] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=what%20is%20the%20cut-off%20mark%20of%20this%20year HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:20] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:21] "GET /data/responses?tag=what%20is%20the%20cut-off%20mark%20of%20this%20year HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:22] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:23] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:24] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:24] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:24] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:24] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:25] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:25] "GET /data/intents HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=what%20is%20the%20cut-off%20mark%20of%20this%20year HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:26] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:27] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:27] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:27] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:27] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:27] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:27] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:27] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/responses?tag=what%20is%20the%20cut-off%20mark%20of%20this%20year HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/patterns?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/patterns?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:28] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/patterns?tag=hostel HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/patterns?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/patterns?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/patterns?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/responses?tag=academic_calendar HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:29] "GET /data/responses?tag=hostel HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:30] "GET /data/responses?tag=fees HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:30] "GET /data/responses?tag=admission HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:30] "GET /data/responses?tag=goodbye HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:30] "GET /data/responses?tag=greeting HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:33] "GET /data/patterns?tag=password_reset HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:50:34] "GET /data/responses?tag=password_reset HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:56] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:50:57] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:51:06] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:51:07] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:51:21] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:51:22] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:51:34] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 16:51:35] "POST /chat HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:51:46] "GET /data/logs HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:51:53] "GET /data/settings HTTP/1.1" 200 -
+/home/iredox/Desktop/zainab/proxy.py:80: DeprecationWarning: Call to deprecated function 'list_documents'. This API has been deprecated since 1.8.0. Please use `tablesDB.list_rows` instead.
+  queries.append(Query.equal('intent_tag', query_tag))
+127.0.0.1 - - [07/Feb/2026 16:51:55] "GET /data/logs HTTP/1.1" 200 -
