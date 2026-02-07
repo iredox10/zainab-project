@@ -88,6 +88,25 @@ def setup_database():
         except Exception as e:
             print(f"Collection {collection_responses} error: {e}")
 
+    # 4. Logs Collection
+    print(f"Checking collection: logs...")
+    try:
+        databases.get_collection(database_id, 'logs')
+        print("Collection already exists.")
+    except Exception:
+        try:
+            databases.create_collection(database_id, 'logs', 'logs', permissions=[
+                Permission.read(Role.users()),
+                Permission.write(Role.any()), 
+            ])
+            databases.create_string_attribute(database_id, 'logs', 'query', 255, True)
+            databases.create_string_attribute(database_id, 'logs', 'response', 1000, True)
+            databases.create_string_attribute(database_id, 'logs', 'intent_tag', 50, False)
+            databases.create_boolean_attribute(database_id, 'logs', 'matched', True)
+            print("Collection created.")
+        except Exception as e:
+            print(f"Collection logs error: {e}")
+
 def migrate_data():
     with open('data/intents.json', 'r') as f:
         data = json.load(f)

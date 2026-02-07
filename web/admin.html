@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NWU Chatbot | Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="northwest_logo.jpg" alt="NWU Logo" class="sidebar-logo">
+                <span>NWU Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active" data-tab="overview">
+                    <i class="fas fa-chart-pie"></i> Overview
+                </a>
+                <a href="#knowledge" class="nav-item" data-tab="knowledge">
+                    <i class="fas fa-brain"></i> Knowledge Base
+                </a>
+                <a href="#unanswered" class="nav-item" data-tab="unanswered">
+                    <i class="fas fa-question-circle"></i> Unanswered
+                </a>
+                <a href="#logs" class="nav-item" data-tab="logs">
+                    <i class="fas fa-list-alt"></i> Query Logs
+                </a>
+                <a href="#settings" class="nav-item" data-tab="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h2 id="tab-title">Overview</h2>
+                <div class="user-info">
+                    <span id="admin-email">admin@nwu.edu.ng</span>
+                    <div class="avatar">A</div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Overview Tab -->
+                <section id="overview" class="tab-pane active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon green"><i class="fas fa-message"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-label">Total Enquiries</span>
+                                <h3 id="total-queries">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon blue"><i class="fas fa-check-circle"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-label">Success Rate</span>
+                                <h3 id="success-rate">0%</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon yellow"><i class="fas fa-bolt"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-label">Top Intent</span>
+                                <h3 id="top-intent">N/A</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h4>Query Volume (Last 7 Days)</h4>
+                            <canvas id="volumeChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h4>Intent Distribution</h4>
+                            <canvas id="intentChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Knowledge Base Tab -->
+                <section id="knowledge" class="tab-pane">
+                    <div class="action-bar">
+                        <button class="btn-primary" id="add-intent-btn"><i class="fas fa-plus"></i> Add New Intent</button>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search knowledge base...">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tag</th>
+                                    <th>Patterns</th>
+                                    <th>Responses</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="intents-table-body">
+                                <!-- Data populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Unanswered Tab -->
+                <section id="unanswered" class="tab-pane">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User Query</th>
+                                    <th>Timestamp</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="unanswered-table-body">
+                                <!-- Data populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Logs Tab -->
+                <section id="logs" class="tab-pane">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Query</th>
+                                    <th>Response</th>
+                                    <th>Intent</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="logs-table-body">
+                                <!-- Data populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Settings Tab -->
+                <section id="settings" class="tab-pane">
+                    <div class="settings-card">
+                        <h4>Bot Configuration</h4>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Confidence Threshold</label>
+                                <span>Adjust how strictly the bot matches user queries.</span>
+                            </div>
+                            <input type="range" min="0" max="100" value="75" class="slider">
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Maintenance Mode</label>
+                                <span>Temporarily disable the chatbot for students.</span>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="intent-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Intent</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="intent-form">
+                <div class="form-group">
+                    <label>Intent Tag</label>
+                    <input type="text" id="modal-tag" placeholder="e.g. fees_2024" required>
+                </div>
+                <div class="form-group">
+                    <label>Patterns (One per line)</label>
+                    <textarea id="modal-patterns" rows="4" placeholder="How much is registration?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Responses (One per line)</label>
+                    <textarea id="modal-responses" rows="4" placeholder="Registration is N50,000."></textarea>
+                </div>
+                <button type="submit" class="btn-primary full-width">Save Intent</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

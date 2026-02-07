@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | NWU Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-logo {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        .login-card h2 {
+            margin-bottom: 30px;
+            color: var(--nwu-green-dark);
+        }
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            outline: none;
+            transition: var(--transition);
+        }
+        .form-group input:focus {
+            border-color: var(--nwu-green);
+            box-shadow: 0 0 0 3px rgba(0, 104, 55, 0.1);
+        }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--nwu-green);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .login-btn:hover {
+            background: var(--nwu-green-dark);
+        }
+        #login-error {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <img src="northwest_logo.jpg" alt="NWU Logo" class="login-logo">
+        <h2>Admin Dashboard</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="admin@nwu.edu.ng" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="login-btn">Sign In</button>
+            <p id="login-error">Invalid email or password.</p>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.0"></script>
+    <script>
+        const { Client, Account } = Appwrite;
+        const client = new Client()
+            .setEndpoint('https://fra.cloud.appwrite.io/v1')
+            .setProject('6953d25b0006cc1ceea5');
+        const account = new Account(client);
+
+        const loginForm = document.getElementById('login-form');
+        const errorEl = document.getElementById('login-error');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                if (data.status === 'success') {
+                    localStorage.setItem('admin_session', JSON.stringify(data.session));
+                    window.location.href = 'admin.html';
+                } else {
+                    errorEl.style.display = 'block';
+                }
+            } catch (error) {
+                console.error(error);
+                errorEl.style.display = 'block';
+            }
+        });
+
+        // Check if already logged in locally
+        if (localStorage.getItem('admin_session')) {
+            window.location.href = 'admin.html';
+        }
+    </script>
+</body>
+</html>
