@@ -1,0 +1,106 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "How are you",
+        "Is anyone there?",
+        "Good morning",
+        "Good afternoon",
+        "Good evening"
+      ],
+      "responses": [
+        "Hello! I am the NWU Intelligent Chatbot. How can I assist you today?",
+        "Hi there! How can I help you with your NWU enquiries?",
+        "Greetings! Feel free to ask me anything about NWU admissions, fees, or campus life."
+      ]
+    },
+    {
+      "tag": "fees",
+      "patterns": [
+        "How much is the school fees?",
+        "What are the registration fees?",
+        "I want to know the breakdown of fees",
+        "How much is fees for Computer Science?",
+        "Are there different fees for non-indigenes?",
+        "hw mch is fees"
+      ],
+      "responses": [
+        "The school fees for NWU varies by faculty. For Computer Science, it is N55,000 for Indigenes. Non-indigenes pay a slightly higher rate as specified in the university handbook.",
+        "You can generate your payment invoice via the student portal. Acceptance fee is also required for new students.",
+        "School fees payment is mandatory before course registration. Please check the portal for your specific breakdown."
+      ]
+    },
+    {
+      "tag": "admission",
+      "patterns": [
+        "What are the admission requirements?",
+        "When is the screening date?",
+        "What is the cut-off mark for 2024?",
+        "How do I apply for Direct Entry?",
+        "Requirements for UTME candidates"
+      ],
+      "responses": [
+        "Admission requirements include a minimum UTME score (usually 160-180+ depending on the course) and 5 O'Level credits including English and Math.",
+        "Screening dates for the 2024/2025 session will be announced on the university website and notice boards. Please stay updated.",
+        "For Direct Entry, you need a minimum of Lower Credit in your Diploma or equivalent qualification."
+      ]
+    },
+    {
+      "tag": "hostel",
+      "patterns": [
+        "How do I apply for hostel?",
+        "Hostel allocation process",
+        "Is there accommodation for freshers?",
+        "How much is hostel fee?"
+      ],
+      "responses": [
+        "Hostel allocation is done via the student portal on a first-come, first-served basis, with priority given to freshers and final-year students.",
+        "The hostel fee is separate from the tuition fee. You must complete your school fees payment before applying for accommodation."
+      ]
+    },
+    {
+      "tag": "academic_calendar",
+      "patterns": [
+        "When is resumption?",
+        "Academic calendar 2024",
+        "When are the exams starting?",
+        "Is the portal open for registration?"
+      ],
+      "responses": [
+        "The academic calendar is usually available on the university website. Resumption for the new session is typically announced after the Senate meeting.",
+        "The portal is currently open for course registration for all levels. Please ensure you register before the deadline to avoid penalties."
+      ]
+    },
+    {
+      "tag": "password_reset",
+      "patterns": [
+        "I lost my password",
+        "How to reset portal password",
+        "I can't login to my portal",
+        "forgot password"
+      ],
+      "responses": [
+        "To reset your portal password, please visit the ICT Center at the Senate building with your admission letter or ID card.",
+        "If you are a fresher, your default password is usually found in your admission letter. If you changed it and forgot, visit the ICT helpdesk."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "Thanks",
+        "Thank you"
+      ],
+      "responses": [
+        "You're welcome! Feel free to return if you have more questions.",
+        "Goodbye! Have a productive academic day.",
+        "Glad I could help. Visit again soon!"
+      ]
+    }
+  ]
+}

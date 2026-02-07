@@ -1,0 +1,19 @@
+NWU Chatbot Proxy starting on http://localhost:5000
+ * Serving Flask app 'proxy'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [07/Feb/2026 15:38:39] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:38:45] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+127.0.0.1 - - [07/Feb/2026 15:39:13] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:39:18] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+127.0.0.1 - - [07/Feb/2026 15:43:03] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+127.0.0.1 - - [07/Feb/2026 15:45:09] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:47:00] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:48:10] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:48:11] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:48:20] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:48:21] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:48:34] "OPTIONS /chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Feb/2026 15:48:35] "POST /chat HTTP/1.1" 200 -

@@ -1,0 +1,28 @@
+{
+    "projectId": "6953d25b0006cc1ceea5",
+    "projectName": "voip",
+    "functions": [
+        {
+            "$id": "chatbot_brain",
+            "name": "Chatbot Brain",
+            "runtime": "python-3.9",
+            "path": "functions/chatbot_brain",
+            "entrypoint": "src/main.py",
+            "ignore": [
+                "venv",
+                ".env"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "scopes": [
+                "documents.read"
+            ]
+        }
+    ]
+}

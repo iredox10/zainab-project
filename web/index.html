@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NWU Intelligent Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="chatbot-container">
+        <!-- Chat Toggle Button -->
+        <button id="chat-toggle" class="chat-fab">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <div class="header-info">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Northwest_University%2C_Kano_logo.png" alt="NWU Logo" class="bot-logo">
+                    <div>
+                        <h3>NWU Chatbot</h3>
+                        <span class="status"><i class="fas fa-circle"></i> Online</span>
+                    </div>
+                </div>
+                <button id="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div id="chat-messages" class="chat-messages">
+                <div class="message bot-message">
+                    Hello! I am the NWU Intelligent Chatbot. How can I assist you with your enquiries today?
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your question here..." autocomplete="off">
+                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.0"></script>
+    <script src="script.js"></script>
+</body>
+</html>
