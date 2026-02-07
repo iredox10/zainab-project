@@ -4,43 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NWU Intelligent Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <div class="chatbot-container">
-        <!-- Chat Toggle Button -->
-        <button id="chat-toggle" class="chat-fab">
-            <i class="fas fa-comment-dots"></i>
-        </button>
+<body class="state-landing">
+    <!-- Background Elements -->
+    <div class="bg-pattern"></div>
+    <div class="bg-glow"></div>
 
-        <!-- Chat Window -->
-        <div id="chat-window" class="chat-window hidden">
-            <div class="chat-header">
-                <div class="header-info">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Northwest_University%2C_Kano_logo.png" alt="NWU Logo" class="bot-logo">
-                    <div>
-                        <h3>NWU Chatbot</h3>
-                        <span class="status"><i class="fas fa-circle"></i> Online</span>
-                    </div>
-                </div>
-                <button id="close-chat"><i class="fas fa-times"></i></button>
+    <div id="main-container" class="main-container">
+        <!-- Landing View -->
+        <header id="hero-header" class="landing-content">
+            <div class="logo-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Northwest_University%2C_Kano_logo.png" alt="NWU Logo" class="main-logo">
             </div>
-            
-            <div id="chat-messages" class="chat-messages">
-                <div class="message bot-message">
-                    Hello! I am the NWU Intelligent Chatbot. How can I assist you with your enquiries today?
-                </div>
-            </div>
+            <h1 class="headline">How can I help you <span class="accent">today?</span></h1>
+            <p class="sub-headline">Ask me anything about NWU admissions, fees, or campus life.</p>
+        </header>
 
-            <div class="chat-input">
-                <input type="text" id="user-input" placeholder="Type your question here..." autocomplete="off">
-                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        <!-- Chat View (Hidden initially) -->
+        <div id="chat-header" class="chat-header chat-content">
+            <div class="header-info">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Northwest_University%2C_Kano_logo.png" alt="NWU Logo" class="mini-logo">
+                <div>
+                    <h3>NWU Assistant</h3>
+                    <span class="status-dot"></span><span class="status-text">Online</span>
+                </div>
+            </div>
+            <button id="restart-btn" title="New Session"><i class="fas fa-rotate-right"></i></button>
+        </div>
+
+        <div id="chat-messages" class="chat-messages chat-content">
+            <!-- Messages will appear here -->
+        </div>
+
+        <!-- Shared Input Container -->
+        <div class="input-wrapper">
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Ask your question..." autocomplete="off">
+                <button id="send-btn" class="send-btn">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="suggestions landing-content">
+                <button class="suggest-chip">School Fees Breakdown</button>
+                <button class="suggest-chip">Admission Cut-off</button>
+                <button class="suggest-chip">Resumption Date</button>
             </div>
         </div>
     </div>
 
-    <!-- Appwrite SDK -->
+    <!-- Appwrite SDK (Fallback) -->
     <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.0"></script>
     <script src="script.js"></script>
 </body>

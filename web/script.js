@@ -1,30 +1,32 @@
 // NWU Chatbot Script
-const chatToggle = document.getElementById('chat-toggle');
-const chatWindow = document.getElementById('chat-window');
-const closeChat = document.getElementById('close-chat');
+const body = document.body;
 const sendBtn = document.getElementById('send-btn');
 const userInput = document.getElementById('user-input');
 const chatMessages = document.getElementById('chat-messages');
+const restartBtn = document.getElementById('restart-btn');
+const suggestChips = document.querySelectorAll('.suggest-chip');
 
 // Using a local proxy to bypass browser CORS restrictions
 const PROXY_URL = 'http://localhost:5000/chat';
 
-// Toggle Chat Window
-chatToggle.addEventListener('click', () => {
-    chatWindow.classList.toggle('hidden');
-    if (!chatWindow.classList.contains('hidden')) {
-        userInput.focus();
-    }
-});
+let isChatStarted = false;
 
-closeChat.addEventListener('click', () => {
-    chatWindow.classList.add('hidden');
-});
+// Transition from Landing to Chat
+function startChatTransition() {
+    if (!isChatStarted) {
+        body.classList.remove('state-landing');
+        body.classList.add('state-chat');
+        isChatStarted = true;
+    }
+}
 
 // Send Message
-async function sendMessage() {
-    const message = userInput.value.trim();
+async function sendMessage(customMessage = null) {
+    const message = customMessage || userInput.value.trim();
     if (!message) return;
+
+    // Trigger transition on first message
+    startChatTransition();
 
     // Add user message to UI
     appendMessage('user', message);
@@ -34,12 +36,9 @@ async function sendMessage() {
     const typingId = addTypingIndicator();
 
     try {
-        // Call our local proxy instead of Appwrite directly
         const response = await fetch(PROXY_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: message })
         });
 
@@ -74,7 +73,7 @@ function addTypingIndicator() {
     const typingDiv = document.createElement('div');
     typingDiv.id = id;
     typingDiv.classList.add('typing');
-    typingDiv.textContent = 'NWU Bot is typing...';
+    typingDiv.textContent = 'Assistant is typing...';
     chatMessages.appendChild(typingDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
     return id;
@@ -85,7 +84,26 @@ function removeTypingIndicator(id) {
     if (el) el.remove();
 }
 
-sendBtn.addEventListener('click', sendMessage);
+// Event Listeners
+sendBtn.addEventListener('click', () => sendMessage());
+
 userInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMessage();
+});
+
+// Suggestion Chips
+suggestChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+        sendMessage(chip.textContent);
+    });
+});
+
+// Restart Session
+restartBtn.addEventListener('click', () => {
+    chatMessages.innerHTML = '';
+    body.classList.remove('state-chat');
+    body.classList.add('state-landing');
+    isChatStarted = false;
+    userInput.value = '';
+    userInput.focus();
 });
