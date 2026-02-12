@@ -1,0 +1,6 @@
+appwrite
+nltk
+numpy
+python-dotenv
+flask
+flask-cors

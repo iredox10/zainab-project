@@ -1,72 +1,55 @@
-import nltk
+import os
+import json
 import numpy as np
-import string
-from nltk.stem.lancaster import LancasterStemmer
+from huggingface_hub import InferenceClient
 
-# Initialize stemmer
-stemmer = LancasterStemmer()
+MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 
-# Download required NLTK data to /tmp since the function is read-only
-nltk.data.path.append("/tmp/nltk_data")
-for resource in ['punkt', 'punkt_tab']:
+def get_hf_client(token):
+    return InferenceClient(model=MODEL_ID, token=token)
+
+def get_query_embedding(text, hf_client):
     try:
-        nltk.data.find(f'tokenizers/{resource}')
-    except LookupError:
-        nltk.download(resource, download_dir="/tmp/nltk_data")
+        # returns a list or numpy array of floats
+        vector = hf_client.feature_extraction(text)
+        if hasattr(vector, 'tolist'):
+            return vector.tolist()
+        return vector
+    except Exception as e:
+        print(f"Embedding error: {e}")
+        return None
 
-def clean_up_sentence(sentence):
-    # tokenize the pattern
-    sentence_words = nltk.word_tokenize(sentence)
-    # stem each word
-    sentence_words = [stemmer.stem(word.lower()) for word in sentence_words if word not in string.punctuation]
-    return sentence_words
+def cosine_similarity(v1, v2):
+    v1 = np.array(v1)
+    v2 = np.array(v2)
+    dot_product = np.dot(v1, v2)
+    norm_v1 = np.linalg.norm(v1)
+    norm_v2 = np.linalg.norm(v2)
+    if norm_v1 == 0 or norm_v2 == 0:
+        return 0
+    return dot_product / (norm_v1 * norm_v2)
 
-def bag_of_words(sentence, words):
-    # tokenize the pattern
-    sentence_words = clean_up_sentence(sentence)
-    # bag of words
-    bag = [0] * len(words)  
-    for s in sentence_words:
-        for i, w in enumerate(words):
-            if w == s: 
-                bag[i] = 1
-    return np.array(bag)
-
-def get_similarity(input_vec, pattern_vec):
-    """Simple dot product similarity for matching"""
-    return np.dot(input_vec, pattern_vec)
-
-def predict_class(sentence, patterns_data, threshold=0.75):
+def predict_intent_semantic(query_vector, embeddings_data, threshold=0.5):
     """
-    sentence: User input string
-    patterns_data: List of dicts {'text': '...', 'tag': '...'}
+    query_vector: list of floats
+    embeddings_data: list of documents from Appwrite 'embeddings' collection
     """
-    # Create vocabulary from all patterns
-    vocabulary = []
-    for p in patterns_data:
-        vocabulary.extend(clean_up_sentence(p['text']))
-    vocabulary = sorted(list(set(vocabulary)))
-
-    # Get input vector
-    input_vec = bag_of_words(sentence, vocabulary)
-    
     results = []
-    for p in patterns_data:
-        p_vec = bag_of_words(p['text'], vocabulary)
-        score = get_similarity(input_vec, p_vec)
-        
-        # Normalize score (count of matching words / total words in input)
-        input_len = len(clean_up_sentence(sentence))
-        if input_len > 0:
-            normalized_score = score / input_len
-        else:
-            normalized_score = 0
-            
-        results.append((p['intent_tag'], normalized_score))
-
-    # Sort by strength of matching
-    results.sort(key=lambda x: x[1], reverse=True)
+    for doc in embeddings_data:
+        try:
+            pattern_vector = json.loads(doc['embedding'])
+            similarity = cosine_similarity(query_vector, pattern_vector)
+            results.append({
+                'tag': doc['intent_tag'],
+                'score': similarity
+            })
+        except Exception:
+            continue
     
-    if results and results[0][1] >= threshold:
-        return results[0][0] # Return the tag
-    return None # Fallback
+    # Sort by score
+    results.sort(key=lambda x: x['score'], reverse=True)
+    
+    if results and results[0]['score'] >= threshold:
+        return results[0]['tag'], results[0]['score']
+    
+    return None, 0

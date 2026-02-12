@@ -1,5 +1,10 @@
 // Use /api if hosted on Netlify, otherwise use localhost:5000
-const PROXY_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+const isLocal = ['localhost', '127.0.0.1', '0.0.0.0'].includes(window.location.hostname) || 
+                window.location.hostname.startsWith('192.168.') || 
+                window.location.hostname.startsWith('10.') ||
+                window.location.protocol === 'file:';
+
+const PROXY_URL = isLocal 
     ? 'http://localhost:5000' 
     : '/api';
 
@@ -48,6 +53,7 @@ function loadTabData(tab) {
 async function loadOverview() {
     try {
         const response = await fetch(`${PROXY_URL}/stats`);
+        if (!response.ok) throw new Error(`Stats error: ${response.status}`);
         const data = await response.json();
         
         const logs = data.logs.documents || [];

@@ -9,7 +9,8 @@
         "Is anyone there?",
         "Good morning",
         "Good afternoon",
-        "Good evening"
+        "Good evening",
+        "hw far"
       ],
       "responses": [
         "Hello! I am the NWU Intelligent Chatbot. How can I assist you today?",

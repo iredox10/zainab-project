@@ -1,3 +1,2 @@
 appwrite
 python-dotenv
-huggingface_hub

@@ -122,10 +122,30 @@ def setup_database():
             databases.create_string_attribute(database_id, 'settings', 'value', 255, True)
             print("Collection created.")
             # Default values
+            import time
             time.sleep(2)
             databases.create_document(database_id, 'settings', 'unique()', {'key': 'threshold', 'value': '0.75'})
         except Exception as e:
             print(f"Collection settings error: {e}")
+
+    # 6. Embeddings Collection
+    print(f"Checking collection: embeddings...")
+    try:
+        databases.get_collection(database_id, 'embeddings')
+        print("Collection already exists.")
+    except Exception:
+        try:
+            databases.create_collection(database_id, 'embeddings', 'embeddings', permissions=[
+                Permission.read(Role.any()),
+                Permission.write(Role.users()), 
+            ])
+            databases.create_string_attribute(database_id, 'embeddings', 'intent_tag', 50, True)
+            databases.create_string_attribute(database_id, 'embeddings', 'pattern_text', 255, True)
+            databases.create_string_attribute(database_id, 'embeddings', 'embedding', 10000, True)
+            databases.create_string_attribute(database_id, 'embeddings', 'model', 100, True)
+            print("Collection created.")
+        except Exception as e:
+            print(f"Collection embeddings error: {e}")
 
 def migrate_data():
     with open('data/intents.json', 'r') as f:

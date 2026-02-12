@@ -4,7 +4,7 @@ import json
 from appwrite.client import Client
 from appwrite.services.databases import Databases
 from appwrite.query import Query
-from .nlp_engine import predict_class
+from .nlp_engine import get_hf_client, get_query_embedding, predict_intent_semantic
 
 def main(context):
     # Appwrite Setup
@@ -13,16 +13,19 @@ def main(context):
     client.set_project(os.environ.get('APPWRITE_PROJECT_ID', '6953d25b0006cc1ceea5'))
     client.set_key(os.environ.get('APPWRITE_API_KEY'))
     
+    hf_token = os.environ.get('HF_API_TOKEN')
+    hf_client = get_hf_client(hf_token)
+    
     databases = Databases(client)
     
     db_id = os.environ.get('APPWRITE_DATABASE_ID', 'nwu_chatbot_db')
-    coll_patterns = os.environ.get('APPWRITE_COLLECTION_PATTERNS', 'patterns')
+    coll_embeddings = 'embeddings'
     coll_responses = os.environ.get('APPWRITE_COLLECTION_RESPONSES', 'responses')
     coll_settings = 'settings'
     coll_logs = 'logs'
 
     try:
-        # 1. Parse Input
+        # ... (Input parsing remains)
         if context.req.body:
             payload = json.loads(context.req.body)
             user_msg = payload.get('message', '')
@@ -33,7 +36,8 @@ def main(context):
             return context.res.json({"error": "Empty message"}, 400)
 
         # 2. Fetch Threshold from Settings
-        threshold = 0.75
+        # Semantic threshold is usually lower, default to 0.5
+        threshold = 0.5
         try:
             settings_resp = databases.list_documents(db_id, coll_settings, [Query.equal('key', 'threshold')])
             if settings_resp['documents']:
@@ -41,14 +45,21 @@ def main(context):
         except Exception as e:
             context.error(f"Settings fetch error: {e}")
 
-        # 3. Fetch Patterns from Appwrite
-        patterns_response = databases.list_documents(db_id, coll_patterns, [
-            Query.limit(100) 
-        ])
-        patterns_data = patterns_response['documents']
+        # 3. Get User Query Embedding
+        query_vector = get_query_embedding(user_msg, hf_client)
+        if not query_vector:
+            return context.res.json({"error": "Failed to generate query embedding"}, 500)
 
-        # 4. Predict Intent
-        intent_tag = predict_class(user_msg, patterns_data, threshold=threshold)
+        # 4. Fetch Stored Embeddings from Appwrite
+        embeddings_response = databases.list_documents(db_id, coll_embeddings, [
+            Query.limit(5000) 
+        ])
+        embeddings_data = embeddings_response['documents']
+        context.log(f"Fetched {len(embeddings_data)} embeddings for semantic matching.")
+
+        # 5. Predict Intent Semantically
+        intent_tag, confidence = predict_intent_semantic(query_vector, embeddings_data, threshold=threshold)
+        context.log(f"Predicted intent: {intent_tag} with confidence {confidence}")
 
         matched = False
         if intent_tag:

@@ -113,7 +113,12 @@
             const password = document.getElementById('password').value;
 
             try {
-                const loginUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                const isLocal = ['localhost', '127.0.0.1', '0.0.0.0'].includes(window.location.hostname) || 
+                                window.location.hostname.startsWith('192.168.') || 
+                                window.location.hostname.startsWith('10.') ||
+                                window.location.protocol === 'file:';
+                
+                const loginUrl = isLocal 
                     ? 'http://localhost:5000/login' 
                     : '/api/login';
 

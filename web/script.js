@@ -7,9 +7,16 @@ const restartBtn = document.getElementById('restart-btn');
 const suggestChips = document.querySelectorAll('.suggest-chip');
 
 // Use /api if hosted on Netlify, otherwise use localhost:5000
-const PROXY_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+const isLocal = ['localhost', '127.0.0.1', '0.0.0.0'].includes(window.location.hostname) || 
+                window.location.hostname.startsWith('192.168.') || 
+                window.location.hostname.startsWith('10.') ||
+                window.location.protocol === 'file:';
+
+const PROXY_URL = isLocal 
     ? 'http://localhost:5000/chat' 
     : '/api/chat';
+
+console.log('Using Proxy URL:', PROXY_URL);
 
 let isChatStarted = false;
 
@@ -44,6 +51,11 @@ async function sendMessage(customMessage = null) {
             body: JSON.stringify({ message: message })
         });
 
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || `Server responded with ${response.status}`);
+        }
+
         const data = await response.json();
         removeTypingIndicator(typingId);
         
@@ -55,7 +67,7 @@ async function sendMessage(customMessage = null) {
     } catch (error) {
         console.error('Error calling proxy:', error);
         removeTypingIndicator(typingId);
-        appendMessage('bot', "Error: Could not connect to the proxy server. Make sure proxy.py is running.");
+        appendMessage('bot', `Error: ${error.message}`);
     }
 }
 
