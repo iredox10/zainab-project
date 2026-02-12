@@ -4,18 +4,24 @@ import numpy as np
 import nltk
 import string
 from nltk.stem.lancaster import LancasterStemmer
+from nltk.corpus import stopwords
 from huggingface_hub import InferenceClient
 
 MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 stemmer = LancasterStemmer()
 
-# Ensure NLTK data is available
 nltk.data.path.append("/tmp/nltk_data")
-for resource in ['punkt', 'punkt_tab']:
+for resource in ['punkt', 'punkt_tab', 'stopwords']:
     try:
-        nltk.data.find(f'tokenizers/{resource}')
+        nltk.data.find(f'tokenizers/{resource}' if resource.startswith('punkt') else f'corpora/{resource}')
     except LookupError:
-        nltk.download(resource, download_dir="/tmp/nltk_data")
+        if resource.startswith('punkt'):
+            nltk.download(resource, download_dir="/tmp/nltk_data")
+        else:
+            nltk.download(resource, download_dir="/tmp/nltk_data")
+
+STOP_WORDS = set(stopwords.words('english'))
+STOP_WORDS.update(['want', 'know', 'like', 'tell', 'please', 'could', 'would', 'need'])
 
 def get_hf_client(token):
     return InferenceClient(model=MODEL_ID, token=token)
@@ -59,7 +65,8 @@ def predict_intent_semantic(query_vector, embeddings_data, threshold=0.5):
 
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
-    sentence_words = [stemmer.stem(word.lower()) for word in sentence_words if word not in string.punctuation]
+    sentence_words = [stemmer.stem(word.lower()) for word in sentence_words 
+                      if word not in string.punctuation and word.lower() not in STOP_WORDS]
     return sentence_words
 
 def bag_of_words(sentence, words):
@@ -71,28 +78,30 @@ def bag_of_words(sentence, words):
                 bag[i] = 1
     return np.array(bag)
 
-def predict_intent_bow(sentence, patterns_data, threshold=0.7):
+def predict_intent_bow(sentence, patterns_data, threshold=0.5):
     """
     patterns_data: list of documents from Appwrite 'patterns' collection
+    Uses cosine similarity for BoW vectors
     """
-    # Create vocabulary
     vocabulary = []
     for p in patterns_data:
         vocabulary.extend(clean_up_sentence(p['text']))
     vocabulary = sorted(list(set(vocabulary)))
 
     input_vec = bag_of_words(sentence, vocabulary)
+    input_norm = np.linalg.norm(input_vec)
     
     results = []
     for p in patterns_data:
         p_vec = bag_of_words(p['text'], vocabulary)
-        # Dot product for BoW
-        score = np.dot(input_vec, p_vec)
+        p_norm = np.linalg.norm(p_vec)
         
-        # Normalize
-        input_len = len(clean_up_sentence(sentence))
-        normalized_score = score / input_len if input_len > 0 else 0
-        results.append((p['intent_tag'], normalized_score))
+        dot_product = np.dot(input_vec, p_vec)
+        if input_norm > 0 and p_norm > 0:
+            similarity = dot_product / (input_norm * p_norm)
+        else:
+            similarity = 0
+        results.append((p['intent_tag'], similarity))
 
     results.sort(key=lambda x: x[1], reverse=True)
     if results and results[0][1] >= threshold:

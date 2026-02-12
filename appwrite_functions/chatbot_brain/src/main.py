@@ -60,8 +60,7 @@ def main(context):
         if not intent_tag:
             context.log("Semantic matching failed or balance depleted. Falling back to Bag of Words...")
             patterns_response = databases.list_documents(db_id, coll_patterns, [Query.limit(5000)])
-            # Use a slightly higher threshold for BoW fallback
-            intent_tag, confidence = predict_intent_bow(user_msg, patterns_response['documents'], threshold=0.7)
+            intent_tag, confidence = predict_intent_bow(user_msg, patterns_response['documents'], threshold=threshold)
             method_used = "bow"
 
         context.log(f"Match Method: {method_used} | Intent: {intent_tag} | Confidence: {confidence}")
