@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 const APPWRITE_ENDPOINT = process.env.APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
 const APPWRITE_PROJECT_ID = process.env.APPWRITE_PROJECT_ID || '6953d25b0006cc1ceea5';
 const APPWRITE_API_KEY = process.env.APPWRITE_API_KEY;
