@@ -1,4 +1,4 @@
 appwrite
-nltk
-numpy
 huggingface_hub
+numpy
+nltk

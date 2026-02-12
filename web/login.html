@@ -113,13 +113,15 @@
             const password = document.getElementById('password').value;
 
             try {
-                const isLocal = ['localhost', '127.0.0.1', '0.0.0.0'].includes(window.location.hostname) || 
+                const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '', 'null'].includes(window.location.hostname) || 
                                 window.location.hostname.startsWith('192.168.') || 
                                 window.location.hostname.startsWith('10.') ||
                                 window.location.protocol === 'file:';
                 
                 const loginUrl = isLocal 
-                    ? 'http://localhost:5000/login' 
+                    ? (window.location.hostname === '' || window.location.hostname === 'null' || window.location.protocol === 'file:' 
+                        ? 'http://127.0.0.1:5000/login' 
+                        : `http://${window.location.hostname}:5000/login`)
                     : '/api/login';
 
                 const response = await fetch(loginUrl, {

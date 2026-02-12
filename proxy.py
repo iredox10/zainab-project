@@ -53,6 +53,10 @@ def generate_and_store_embedding(text, tag):
     except Exception as e:
         print(f"Embedding generation error: {e}")
 
+@app.route('/ping', methods=['GET'])
+def ping():
+    return "pong-local-v5"
+
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.json
@@ -64,8 +68,16 @@ def chat():
             function_id='chatbot_brain',
             body=json.dumps({"message": message})
         )
+        print(f"DEBUG: Appwrite Execution ID: {execution['$id']}")
+        print(f"DEBUG: Status: {execution['status']}")
+        print(f"DEBUG: Response Body: {execution['responseBody']}")
+        
+        if not execution['responseBody']:
+            return jsonify({"error": "Brain returned empty response", "status": execution['status']}), 500
+            
         return jsonify(json.loads(execution['responseBody']))
     except Exception as e:
+        print(f"ERROR: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 @app.route('/login', methods=['POST'])

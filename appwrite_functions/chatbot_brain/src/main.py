@@ -4,7 +4,7 @@ import json
 from appwrite.client import Client
 from appwrite.services.databases import Databases
 from appwrite.query import Query
-from .nlp_engine import get_hf_client, get_query_embedding, predict_intent_semantic
+from .nlp_engine import get_hf_client, get_query_embedding, predict_intent_semantic, predict_intent_bow
 
 def main(context):
     # Appwrite Setup
@@ -20,12 +20,13 @@ def main(context):
     
     db_id = os.environ.get('APPWRITE_DATABASE_ID', 'nwu_chatbot_db')
     coll_embeddings = 'embeddings'
+    coll_patterns = 'patterns'
     coll_responses = os.environ.get('APPWRITE_COLLECTION_RESPONSES', 'responses')
     coll_settings = 'settings'
     coll_logs = 'logs'
 
     try:
-        # ... (Input parsing remains)
+        # 1. Parse Input
         if context.req.body:
             payload = json.loads(context.req.body)
             user_msg = payload.get('message', '')
@@ -36,7 +37,6 @@ def main(context):
             return context.res.json({"error": "Empty message"}, 400)
 
         # 2. Fetch Threshold from Settings
-        # Semantic threshold is usually lower, default to 0.5
         threshold = 0.5
         try:
             settings_resp = databases.list_documents(db_id, coll_settings, [Query.equal('key', 'threshold')])
@@ -45,28 +45,30 @@ def main(context):
         except Exception as e:
             context.error(f"Settings fetch error: {e}")
 
-        # 3. Get User Query Embedding
+        intent_tag = None
+        confidence = 0
+        method_used = "none"
+
+        # 3. Try Semantic Embedding First
         query_vector = get_query_embedding(user_msg, hf_client)
-        if not query_vector:
-            return context.res.json({"error": "Failed to generate query embedding"}, 500)
+        if query_vector:
+            embeddings_response = databases.list_documents(db_id, coll_embeddings, [Query.limit(5000)])
+            intent_tag, confidence = predict_intent_semantic(query_vector, embeddings_response['documents'], threshold=threshold)
+            method_used = "semantic"
+        
+        # 4. Fallback to Bag of Words if semantic fails or is below threshold
+        if not intent_tag:
+            context.log("Semantic matching failed or balance depleted. Falling back to Bag of Words...")
+            patterns_response = databases.list_documents(db_id, coll_patterns, [Query.limit(5000)])
+            # Use a slightly higher threshold for BoW fallback
+            intent_tag, confidence = predict_intent_bow(user_msg, patterns_response['documents'], threshold=0.7)
+            method_used = "bow"
 
-        # 4. Fetch Stored Embeddings from Appwrite
-        embeddings_response = databases.list_documents(db_id, coll_embeddings, [
-            Query.limit(5000) 
-        ])
-        embeddings_data = embeddings_response['documents']
-        context.log(f"Fetched {len(embeddings_data)} embeddings for semantic matching.")
-
-        # 5. Predict Intent Semantically
-        intent_tag, confidence = predict_intent_semantic(query_vector, embeddings_data, threshold=threshold)
-        context.log(f"Predicted intent: {intent_tag} with confidence {confidence}")
+        context.log(f"Match Method: {method_used} | Intent: {intent_tag} | Confidence: {confidence}")
 
         matched = False
         if intent_tag:
-            # 4. Fetch Responses for this intent
-            responses_response = databases.list_documents(db_id, coll_responses, [
-                Query.equal('intent_tag', intent_tag)
-            ])
+            responses_response = databases.list_documents(db_id, coll_responses, [Query.equal('intent_tag', intent_tag)])
             responses = [r['text'] for r in responses_response['documents']]
             
             if responses:
@@ -75,7 +77,6 @@ def main(context):
             else:
                 final_response = "I found the intent but have no response configured."
         else:
-            # Fallback
             final_response = "I'm sorry, I didn't quite understand that. Could you please rephrase your question about NWU?"
 
         # 5. Log the Query
@@ -91,7 +92,9 @@ def main(context):
 
         return context.res.json({
             "message": final_response,
-            "intent": intent_tag
+            "intent": intent_tag,
+            "confidence": confidence,
+            "method": method_used
         })
 
     except Exception as e:

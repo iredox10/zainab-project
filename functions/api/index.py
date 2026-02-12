@@ -46,11 +46,15 @@ def generate_and_store_embedding(text, tag):
 
 def handler(event, context):
     full_path = event['path']
-    # Normalize path: handles both /.netlify/functions/api/chat and /api/chat
-    path = full_path.replace('/.netlify/functions/api', '').replace('/api', '').strip('/')
-    method = event['httpMethod']
+    # Aggressive path normalization
+    path = full_path
+    prefixes = ['/.netlify/functions/api', '/api', '/.netlify/functions/index']
+    for p in prefixes:
+        path = path.replace(p, '')
+    path = path.strip('/')
     
-    print(f"DEBUG: path={path}, full_path={full_path}, method={method}")
+    method = event['httpMethod']
+    print(f"DEBUG: original={full_path} normalized={path} method={method}")
     
     headers = {
         "Access-Control-Allow-Origin": "*",
@@ -62,7 +66,7 @@ def handler(event, context):
         return {"statusCode": 200, "headers": headers, "body": "OK"}
 
     if path == 'ping':
-        return {"statusCode": 200, "headers": headers, "body": "pong"}
+        return {"statusCode": 200, "headers": headers, "body": "pong-v5"}
 
     try:
         body = json.loads(event.get('body', '{}'))

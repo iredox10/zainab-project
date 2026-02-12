@@ -6,14 +6,16 @@ const chatMessages = document.getElementById('chat-messages');
 const restartBtn = document.getElementById('restart-btn');
 const suggestChips = document.querySelectorAll('.suggest-chip');
 
-// Use /api if hosted on Netlify, otherwise use localhost:5000
-const isLocal = ['localhost', '127.0.0.1', '0.0.0.0'].includes(window.location.hostname) || 
+// Use /api if hosted on Netlify, otherwise use current hostname:5000
+const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '', 'null'].includes(window.location.hostname) || 
                 window.location.hostname.startsWith('192.168.') || 
                 window.location.hostname.startsWith('10.') ||
                 window.location.protocol === 'file:';
 
 const PROXY_URL = isLocal 
-    ? 'http://localhost:5000/chat' 
+    ? (window.location.hostname === '' || window.location.hostname === 'null' || window.location.protocol === 'file:' 
+        ? 'http://127.0.0.1:5000/chat' 
+        : `http://${window.location.hostname}:5000/chat`)
     : '/api/chat';
 
 console.log('Using Proxy URL:', PROXY_URL);
