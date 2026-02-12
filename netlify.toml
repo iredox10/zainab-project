@@ -3,8 +3,7 @@
   functions = "functions"
 
 [functions]
-  directory = "functions"
-  pythonVersion = "3.9"
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/api/*"
