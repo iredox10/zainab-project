@@ -52,11 +52,27 @@ async function sendMessage(customMessage = null) {
         });
 
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || `Server responded with ${response.status}`);
+            const text = await response.text();
+            let errorMsg = `Server error ${response.status}`;
+            try {
+                const errorData = JSON.parse(text);
+                errorMsg = errorData.error || errorMsg;
+            } catch (e) {
+                // If not JSON, use the raw text if it's short, or just the status
+                if (text.length < 100) errorMsg = text;
+            }
+            throw new Error(errorMsg);
         }
 
-        const data = await response.json();
+        const text = await response.text();
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            console.error('Invalid JSON response:', text);
+            throw new Error('Received invalid data from server. Check console for details.');
+        }
+        
         removeTypingIndicator(typingId);
         
         if (data.message) {

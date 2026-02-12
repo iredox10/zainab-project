@@ -45,8 +45,12 @@ def generate_and_store_embedding(text, tag):
         print(f"Embedding error: {e}")
 
 def handler(event, context):
-    path = event['path'].replace('/api/', '')
+    full_path = event['path']
+    # Normalize path: handles both /.netlify/functions/api/chat and /api/chat
+    path = full_path.replace('/.netlify/functions/api', '').replace('/api', '').strip('/')
     method = event['httpMethod']
+    
+    print(f"DEBUG: path={path}, full_path={full_path}, method={method}")
     
     headers = {
         "Access-Control-Allow-Origin": "*",

@@ -21,7 +21,7 @@ client.set_key(api_key)
 functions = Functions(client)
 
 function_id = 'chatbot_brain'
-path = 'functions/chatbot_brain'
+path = 'appwrite_functions/chatbot_brain'
 
 def create_tar_gz():
     out = io.BytesIO()

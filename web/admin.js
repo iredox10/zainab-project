@@ -53,7 +53,10 @@ function loadTabData(tab) {
 async function loadOverview() {
     try {
         const response = await fetch(`${PROXY_URL}/stats`);
-        if (!response.ok) throw new Error(`Stats error: ${response.status}`);
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(text || `Stats error: ${response.status}`);
+        }
         const data = await response.json();
         
         const logs = data.logs.documents || [];

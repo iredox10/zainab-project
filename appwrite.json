@@ -6,7 +6,7 @@
             "$id": "chatbot_brain",
             "name": "Chatbot Brain",
             "runtime": "python-3.9",
-            "path": "functions/chatbot_brain",
+            "path": "appwrite_functions/chatbot_brain",
             "entrypoint": "src/main.py",
             "ignore": [
                 "venv",

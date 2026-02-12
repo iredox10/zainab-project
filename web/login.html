@@ -128,6 +128,12 @@
                     body: JSON.stringify({ email, password })
                 });
 
+                if (!response.ok) {
+                    const text = await response.text();
+                    console.error('Login error response:', text);
+                    throw new Error('Login failed');
+                }
+
                 const data = await response.json();
                 if (data.status === 'success') {
                     localStorage.setItem('admin_session', JSON.stringify(data.session));

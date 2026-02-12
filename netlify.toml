@@ -1,8 +1,14 @@
 [build]
   publish = "web"
-  functions = "netlify/functions"
+  functions = "functions"
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/api"
+  to = "/.netlify/functions/api/:splat"
   status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
