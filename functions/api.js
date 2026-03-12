@@ -85,10 +85,16 @@ exports.handler = async (event, context) => {
             return { statusCode: 200, headers, body: JSON.stringify({ status: 'success', session: result }) };
         }
 
+        const Q = {
+            limit: (n) => encodeURIComponent(JSON.stringify({ method: 'limit', values: [n] })),
+            orderDesc: (attr) => encodeURIComponent(JSON.stringify({ method: 'orderDesc', attribute: attr, values: [] })),
+            equal: (attr, val) => encodeURIComponent(JSON.stringify({ method: 'equal', attribute: attr, values: [val] }))
+        };
+
         if (path === 'stats' && method === 'GET') {
             const [logs, intents] = await Promise.all([
-                appwriteRequest(`/databases/${DB_ID}/collections/logs/documents?queries[]=${encodeURIComponent('limit(100)')}&queries[]=${encodeURIComponent('orderDesc("$createdAt")')}`),
-                appwriteRequest(`/databases/${DB_ID}/collections/intents/documents?queries[]=${encodeURIComponent('limit(100)')}`)
+                appwriteRequest(`/databases/${DB_ID}/collections/logs/documents?queries[]=${Q.limit(100)}&queries[]=${Q.orderDesc('$createdAt')}`),
+                appwriteRequest(`/databases/${DB_ID}/collections/intents/documents?queries[]=${Q.limit(100)}`)
             ]);
             return { statusCode: 200, headers, body: JSON.stringify({ logs, intents }) };
         }
@@ -97,9 +103,9 @@ exports.handler = async (event, context) => {
             const collection = path.replace('data/', '');
             
             if (method === 'GET') {
-                let queryStr = `?queries[]=${encodeURIComponent('limit(100)')}`;
+                let queryStr = `?queries[]=${Q.limit(100)}`;
                 if (params.tag) {
-                    queryStr += `&queries[]=${encodeURIComponent(`equal("intent_tag", ["${params.tag}"])`)}`;
+                    queryStr += `&queries[]=${Q.equal('intent_tag', params.tag)}`;
                 }
                 const result = await appwriteRequest(`/databases/${DB_ID}/collections/${collection}/documents${queryStr}`);
                 return { statusCode: 200, headers, body: JSON.stringify(result) };
@@ -124,9 +130,9 @@ exports.handler = async (event, context) => {
                     const tag = intent.tag;
                     
                     const [patterns, responses, embeddings] = await Promise.all([
-                        appwriteRequest(`/databases/${DB_ID}/collections/patterns/documents?queries[]=${encodeURIComponent(`equal("intent_tag", ["${tag}"])`)}&queries[]=${encodeURIComponent('limit(100)')}`),
-                        appwriteRequest(`/databases/${DB_ID}/collections/responses/documents?queries[]=${encodeURIComponent(`equal("intent_tag", ["${tag}"])`)}&queries[]=${encodeURIComponent('limit(100)')}`),
-                        appwriteRequest(`/databases/${DB_ID}/collections/embeddings/documents?queries[]=${encodeURIComponent(`equal("intent_tag", ["${tag}"])`)}&queries[]=${encodeURIComponent('limit(100)')}`)
+                        appwriteRequest(`/databases/${DB_ID}/collections/patterns/documents?queries[]=${Q.equal('intent_tag', tag)}&queries[]=${Q.limit(100)}`),
+                        appwriteRequest(`/databases/${DB_ID}/collections/responses/documents?queries[]=${Q.equal('intent_tag', tag)}&queries[]=${Q.limit(100)}`),
+                        appwriteRequest(`/databases/${DB_ID}/collections/embeddings/documents?queries[]=${Q.equal('intent_tag', tag)}&queries[]=${Q.limit(100)}`)
                     ]);
                     
                     for (const doc of patterns.documents || []) {
