@@ -5,9 +5,7 @@ const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '', 'null'].includes(windo
                 window.location.protocol === 'file:';
 
 const PROXY_URL = isLocal 
-    ? (window.location.hostname === '' || window.location.hostname === 'null' || window.location.protocol === 'file:' 
-        ? 'http://127.0.0.1:5000' 
-        : `http://${window.location.hostname}:5000`)
+    ? 'http://127.0.0.1:5000' 
     : '/api';
 
 // State

@@ -70,12 +70,21 @@ def chat():
         )
         print(f"DEBUG: Appwrite Execution ID: {execution['$id']}")
         print(f"DEBUG: Status: {execution['status']}")
-        print(f"DEBUG: Response Body: {execution['responseBody']}")
         
-        if not execution['responseBody']:
-            return jsonify({"error": "Brain returned empty response", "status": execution['status']}), 500
+        # In case of 500 or failed status, the body might still contain useful JSON or be empty
+        response_body = execution.get('responseBody', '')
+        if not response_body:
+            return jsonify({
+                "message": "I'm having a technical issue. Please try again or ask something else.",
+                "error": "Empty response from brain",
+                "status": execution['status']
+            }), 200 # Return 200 so the UI doesn't show a generic network error
             
-        return jsonify(json.loads(execution['responseBody']))
+        try:
+            return jsonify(json.loads(response_body))
+        except json.JSONDecodeError:
+            return jsonify({"message": "My brain sent back a messy response.", "raw": response_body}), 200
+            
     except Exception as e:
         print(f"ERROR: {str(e)}")
         return jsonify({"error": str(e)}), 500

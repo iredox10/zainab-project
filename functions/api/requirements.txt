@@ -1,0 +1,2 @@
+appwrite
+huggingface_hub
