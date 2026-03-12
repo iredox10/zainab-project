@@ -2,9 +2,6 @@
   publish = "web"
   functions = "functions"
 
-[functions]
-  node_bundler = "esbuild"
-
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
