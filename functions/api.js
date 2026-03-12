@@ -87,8 +87,8 @@ exports.handler = async (event, context) => {
 
         if (path === 'stats' && method === 'GET') {
             const [logs, intents] = await Promise.all([
-                appwriteRequest(`/databases/${DB_ID}/collections/logs/documents?queries[]=${encodeURIComponent(JSON.stringify({"limit": 100}))}&queries[]=${encodeURIComponent(JSON.stringify({"orderDesc": "$createdAt"}))}`),
-                appwriteRequest(`/databases/${DB_ID}/collections/intents/documents`)
+                appwriteRequest(`/databases/${DB_ID}/collections/logs/documents?queries[]=${encodeURIComponent('limit(100)')}&queries[]=${encodeURIComponent('orderDesc("$createdAt")')}`),
+                appwriteRequest(`/databases/${DB_ID}/collections/intents/documents?queries[]=${encodeURIComponent('limit(100)')}`)
             ]);
             return { statusCode: 200, headers, body: JSON.stringify({ logs, intents }) };
         }
@@ -97,9 +97,9 @@ exports.handler = async (event, context) => {
             const collection = path.replace('data/', '');
             
             if (method === 'GET') {
-                let queryStr = `?queries[]=${encodeURIComponent(JSON.stringify({"limit": 100}))}`;
+                let queryStr = `?queries[]=${encodeURIComponent('limit(100)')}`;
                 if (params.tag) {
-                    queryStr += `&queries[]=${encodeURIComponent(JSON.stringify({"equal": ["intent_tag", params.tag]}))}`;
+                    queryStr += `&queries[]=${encodeURIComponent(`equal("intent_tag", ["${params.tag}"])`)}`;
                 }
                 const result = await appwriteRequest(`/databases/${DB_ID}/collections/${collection}/documents${queryStr}`);
                 return { statusCode: 200, headers, body: JSON.stringify(result) };
@@ -124,9 +124,9 @@ exports.handler = async (event, context) => {
                     const tag = intent.tag;
                     
                     const [patterns, responses, embeddings] = await Promise.all([
-                        appwriteRequest(`/databases/${DB_ID}/collections/patterns/documents?queries[]=${encodeURIComponent(JSON.stringify({"equal": ["intent_tag", tag]}))}`),
-                        appwriteRequest(`/databases/${DB_ID}/collections/responses/documents?queries[]=${encodeURIComponent(JSON.stringify({"equal": ["intent_tag", tag]}))}`),
-                        appwriteRequest(`/databases/${DB_ID}/collections/embeddings/documents?queries[]=${encodeURIComponent(JSON.stringify({"equal": ["intent_tag", tag]}))}`)
+                        appwriteRequest(`/databases/${DB_ID}/collections/patterns/documents?queries[]=${encodeURIComponent(`equal("intent_tag", ["${tag}"])`)}&queries[]=${encodeURIComponent('limit(100)')}`),
+                        appwriteRequest(`/databases/${DB_ID}/collections/responses/documents?queries[]=${encodeURIComponent(`equal("intent_tag", ["${tag}"])`)}&queries[]=${encodeURIComponent('limit(100)')}`),
+                        appwriteRequest(`/databases/${DB_ID}/collections/embeddings/documents?queries[]=${encodeURIComponent(`equal("intent_tag", ["${tag}"])`)}&queries[]=${encodeURIComponent('limit(100)')}`)
                     ]);
                     
                     for (const doc of patterns.documents || []) {
