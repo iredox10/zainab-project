@@ -363,4 +363,10 @@ function initDashboard() {
     loadOverview();
 }
 
+// Logout
+document.getElementById('logout-btn').addEventListener('click', () => {
+    localStorage.removeItem('admin_session');
+    window.location.href = 'login.html';
+});
+
 checkAuth();
